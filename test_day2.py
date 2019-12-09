@@ -10,10 +10,11 @@ class TestIntcodeListObject(unittest.TestCase):
         self.assertEqual(intcodeObj.Run(), resultList)
 
     def test_IntcodeListObject_B(self):
-        dataList = [1,1,1,4,99,5,6,0,99]
-        resultList = [30,1,1,4,2,5,6,0,99]
+        dataList = [1, 1, 1, 4, 99, 5, 6, 0, 99]
+        resultList = [30, 1, 1, 4, 2, 5, 6, 0, 99]
         intcodeObj = IntcodeListObject(dataList)
         self.assertEqual(intcodeObj.Run(), resultList)
+
 
 if __name__ == '__main__':
     unittest.main()

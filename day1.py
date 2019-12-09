@@ -4,11 +4,11 @@ class RocketObject(object):
         self.totalFuel = 0
 
         self.Validate()
-    
+
     def Validate(self):
         if not isinstance(self.mass, int):
             raise RuntimeError('Need an integer input.')
-    
+
     @property
     def Fuel(self):
         return (self.mass / 3) - 2
@@ -21,7 +21,7 @@ class RocketObject(object):
                 self.totalFuel += value
                 getFuel(value)
             return value
-        
+
         getFuel(self.mass)
         return self.totalFuel
 
@@ -51,6 +51,7 @@ def main():
         f.close()
     print SolverA(rockets)
     print SolverB(rockets)
+    print 'Solved.'
 
 
 if __name__ == '__main__':
