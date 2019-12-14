@@ -1,7 +1,50 @@
 from math import sqrt, pow
 
 
-class WireObject(object):
+class LineObject():
+    def __init__(self, from_pos, to_pos):
+        self.startPos = from_pos
+        self.endPos = to_pos
+        self.distance = self.GetDistance(from_pos, to_pos)
+        self.slope = self.GetSlope(from_pos, to_pos)
+
+    def GetDistance(self, from_pos, to_pos):
+        x1 = from_pos[0]
+        y1 = from_pos[1]
+        x2 = to_pos[0]
+        y2 = to_pos[1]
+        self.distance = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2))
+        return self.distance
+
+    def GetSlope(self, from_pos, to_pos):
+        x1 = from_pos[0]
+        y1 = from_pos[1]
+        x2 = to_pos[0]
+        y2 = to_pos[1]
+        try:
+            self.slope = (x2 - x1) / (y2 - y1)
+        except ZeroDivisionError:
+            return 0
+        return self.slope
+
+    @property
+    def Distance(self):
+        return self.distance
+
+    @property
+    def StartPos(self):
+        return self.startPos
+
+    @property
+    def EndPos(self):
+        return self.endPos
+
+    @property
+    def Slope(self):
+        return self.slope
+
+
+class WireObject():
     START_POS = (0, 0)
     X_MOVE, Y_MOVE = range(2)
 
@@ -250,7 +293,7 @@ def SolveB(dataSet):
 def main():
     dataSet = []
 
-    with open('day3-wires-data.txt', 'r') as f:
+    with open('day3-inputs.txt', 'r') as f:
         lines = f.readlines()
         for line in lines:
             dataSet.append([i.replace('\n', '') for i in line.split(',')])

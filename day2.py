@@ -1,7 +1,7 @@
 from itertools import product
 
 
-class IntcodeObject(object):
+class IntcodeObject():
     ADD = 1
     MULT = 2
     END = 99
@@ -37,7 +37,7 @@ class IntcodeObject(object):
             return None
 
 
-class IntcodeListObject(object):
+class IntcodeListObject():
     def __init__(self, intList):
         self.intList = intList
 
@@ -91,7 +91,8 @@ class IntcodeListObject(object):
 
 def SolveA(intcodes):
     intcodeObj = IntcodeListObject(intcodes)
-    return intcodeObj.Run()
+    result = intcodeObj.Run()
+    return result[0]
 
 
 def SolveB(intcodes):
@@ -105,7 +106,7 @@ def SolveB(intcodes):
 def main():
     intcodes = []
 
-    with open('day2-intcodes-data.txt', 'r') as f:
+    with open('day2-inputs.txt', 'r') as f:
         lines = f.readline()
         intcodes = [int(i) for i in lines.split(',')]
         f.close()

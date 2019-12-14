@@ -1,4 +1,4 @@
-class RocketObject(object):
+class RocketObject():
     def __init__(self, mass):
         self.mass = mass
         self.totalFuel = 0
@@ -45,7 +45,7 @@ def SolverB(rockets):
 def main():
     rockets = []
 
-    with open('day1-fuel-data.txt', 'r') as f:
+    with open('day1-inputs.txt', 'r') as f:
         for line in f.readlines():
             rockets.append(int(line.replace('\n', '')))
         f.close()
