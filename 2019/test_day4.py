@@ -4,22 +4,22 @@ import unittest
 
 class TestPasswordChecker(unittest.TestCase):
     def test_PasswordChecker_OneA(self):
-        self.assertTrue(self.checker.isPassword(111111, partTwo=False))
+        self.assertTrue(self.checker.IsPassword(111111, partTwo=False))
 
     def test_PasswordChecker_OneB(self):
-        self.assertFalse(self.checker.isPassword(223450, partTwo=False))
+        self.assertFalse(self.checker.IsPassword(223450, partTwo=False))
 
     def test_PasswordChecker_OneC(self):
-        self.assertFalse(self.checker.isPassword(123789, partTwo=False))
+        self.assertFalse(self.checker.IsPassword(123789, partTwo=False))
 
     def test_PasswordChecker_TwoA(self):
-        self.assertTrue(self.checker.isPassword(112233, partTwo=True))
+        self.assertTrue(self.checker.IsPassword(112233, partTwo=True))
 
     def test_PasswordChecker_TwoB(self):
-        self.assertFalse(self.checker.isPassword(123444, partTwo=True))
+        self.assertFalse(self.checker.IsPassword(123444, partTwo=True))
 
     def test_PasswordChecker_TwoC(self):
-        self.assertTrue(self.checker.isPassword(111122, partTwo=True))
+        self.assertTrue(self.checker.IsPassword(111122, partTwo=True))
 
     def setUp(self):
         self.start_num = 108457

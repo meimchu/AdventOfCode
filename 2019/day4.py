@@ -4,7 +4,7 @@ class PasswordChecker():
         self.end_num = end_num
         # self.digitList = []
 
-    def isPassword(self, num, partTwo=False):
+    def IsPassword(self, num, partTwo=False):
         smallerDigitThanPrev = False
         matchCombo = 1
         hasPair = False
@@ -49,7 +49,7 @@ class PasswordChecker():
             if self.start_num < 100000 and self.end_num > 999999:
                 return 0
 
-            if self.isPassword(num, partTwo=partTwo):
+            if self.IsPassword(num, partTwo=partTwo):
                 goodNums += 1
 
         return goodNums
