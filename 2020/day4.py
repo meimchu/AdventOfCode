@@ -120,19 +120,28 @@ def SolverB(passportList):
     return goodPassports
 
 
+def parse(textData):
+    passportList = ['']
+    for line in textData.splitlines():
+        line = line.rstrip()
+        if line != '':
+            oldLine = passportList.pop(-1)
+            if oldLine != '':
+                oldLine += ' '
+            line = oldLine + line
+            passportList.append(line)
+        else:
+            passportList.append('')
+    return passportList
+
+
 def main():
     passportList = ['']
+    lines = ''
     with open('day4-inputs.txt', 'r') as f:
         for line in f.readlines():
-            line = line.rstrip()
-            if line != '':
-                oldLine = passportList.pop(-1)
-                if oldLine != '':
-                    oldLine += ' '
-                line = oldLine + line
-                passportList.append(line)
-            else:
-                passportList.append('')
+            lines += line
+        passportList = parse(lines)
 
     print(SolverA(passportList))
     print(SolverB(passportList))
