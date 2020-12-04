@@ -90,6 +90,7 @@ class Passport():
         return False
 
 
+@time_it
 def SolverA(passportList):
     goodPassports = 0
     for passport in passportList:
@@ -104,6 +105,7 @@ def SolverA(passportList):
     return goodPassports
 
 
+@time_it
 def SolverB(passportList):
     goodPassports = 0
     for passport in passportList:
@@ -114,7 +116,6 @@ def SolverB(passportList):
         passportObj = Passport(passportDict, True)
         if passportObj.validate():
             goodPassports += 1
-            # print passportDict
 
     return goodPassports
 
@@ -133,7 +134,7 @@ def main():
             else:
                 passportList.append('')
 
-    # print(SolverA(passportList))
+    print(SolverA(passportList))
     print(SolverB(passportList))
 
 
