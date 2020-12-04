@@ -122,7 +122,7 @@ def SolverB(passportList):
 
 def main():
     passportList = ['']
-    with open('day4-input.txt', 'r') as f:
+    with open('day4-inputs.txt', 'r') as f:
         for line in f.readlines():
             line = line.rstrip()
             if line != '':
@@ -136,6 +136,7 @@ def main():
 
     print(SolverA(passportList))
     print(SolverB(passportList))
+    print('Solved.')
 
 
 if __name__ == '__main__':

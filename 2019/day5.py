@@ -167,7 +167,7 @@ def main():
     # intcodes = [1101, 100, -1, 4, 0]
     # intcodes = [3, 2, 50, 99]
     print SolveA(intcodes)
-    print 'Solved.'
+    print('Solved.')
 
 
 if __name__ == '__main__':

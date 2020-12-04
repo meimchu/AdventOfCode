@@ -112,7 +112,7 @@ def main():
         f.close()
     print SolveA(intcodes)
     print SolveB(intcodes)
-    print 'Solved.'
+    print('Solved.')
 
 
 if __name__ == '__main__':

@@ -300,7 +300,7 @@ def main():
         f.close()
     print SolveA(dataSet)
     print SolveB(dataSet)
-    print 'Solved.'
+    print('Solved.')
 
 
 if __name__ == '__main__':

@@ -51,7 +51,7 @@ def main():
         f.close()
     print SolverA(rockets)
     print SolverB(rockets)
-    print 'Solved.'
+    print('Solved.')
 
 
 if __name__ == '__main__':

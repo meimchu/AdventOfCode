@@ -79,13 +79,14 @@ def SolverB(puzzleMap):
 
 def main():
     puzzleMap = []
-    with open('day3-input.txt', 'r') as f:
+    with open('day3-inputs.txt', 'r') as f:
         for line in f.readlines():
             line = line.rstrip()
             puzzleMap.append(line)
 
     print(SolverA(puzzleMap))
     print(SolverB(puzzleMap))
+    print('Solved.')
 
 
 if __name__ == '__main__':

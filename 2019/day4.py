@@ -73,7 +73,7 @@ def main():
     end_num = int(line.split('-')[1])
     print SolveA(start_num, end_num)
     print SolveB(start_num, end_num)
-    print 'Solved.'
+    print('Solved.')
 
 
 if __name__ == '__main__':

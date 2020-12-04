@@ -69,7 +69,7 @@ def SolverB(passwordList):
 
 def main():
     passwordList = []
-    with open('day2-input.txt', 'r') as f:
+    with open('day2-inputs.txt', 'r') as f:
         for line in f.readlines():
             line = line.rstrip()
             if line not in passwordList:
@@ -77,6 +77,7 @@ def main():
 
     print(SolverA(passwordList))
     print(SolverB(passwordList))
+    print('Solved.')
 
 
 if __name__ == '__main__':

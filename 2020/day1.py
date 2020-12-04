@@ -92,7 +92,7 @@ def SolverB(expenseList):
 
 def main():
     expenseList = []
-    with open('day1-input.txt', 'r') as f:
+    with open('day1-inputs.txt', 'r') as f:
         for line in f.readlines():
             line = line.rstrip()
             expenseList.append(int(line))

@@ -138,7 +138,7 @@ def main():
     dataSet = [["R8", "U5", "L5", "D3"], ["U7", "R6", "D4", "L4"]]
     print SolveA(dataSet)
     # print SolveB(dataSet)
-    print 'Solved.'
+    print('Solved.')
 
 
 if __name__ == '__main__':
