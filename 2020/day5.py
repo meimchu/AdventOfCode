@@ -19,30 +19,29 @@ class SeatFinder():
     def colPattern(self):
         return self._colPattern
 
-    def search(self, x, rowOrCol):
-        lowHigh = [0, len(x)]
+    def search(self, rowOrCol):
         if rowOrCol == self.ROW:
+            lowHigh = [0, len(self.TOTAL_ROWS)]
             pattern = self.rowPattern
-            lowKeyWord = 'F'
-            highKeyWord = 'B'
+            keyWords = ('F', 'B')
         else:
+            lowHigh = [0, len(self.TOTAL_COLS)]
             pattern = self.colPattern
-            lowKeyWord = 'L'
-            highKeyWord = 'R'
+            keyWords = ('L', 'R')
 
         for row in pattern:
             mid = (lowHigh[0] + lowHigh[-1]) // 2
-            if row == lowKeyWord:
+            if row == keyWords[0]:
                 lowHigh[-1] = mid
-            elif row == highKeyWord:
+            elif row == keyWords[-1]:
                 lowHigh[0] = mid
         return lowHigh[0]
 
     def search_row(self):
-        return self.search(self.TOTAL_ROWS, self.ROW)
+        return self.search(self.ROW)
 
     def search_col(self):
-        return self.search(self.TOTAL_COLS, self.COL)
+        return self.search(self.COL)
 
     def seat_id(self):
         return (self.search_row() * 8 + self.search_col())
