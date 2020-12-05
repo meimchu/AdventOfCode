@@ -18,7 +18,7 @@ class PuzzleMap():
     @property
     def column(self):
         return self._column
-    
+
     def drawLine(self, x, y):
         line = self.puzzleMap[y-1]
         line = list(line)
@@ -55,6 +55,7 @@ def SolverA(puzzleMap):
         posY += 1
     return treeHits
 
+
 @time_it
 def SolverB(puzzleMap):
     mapObj = PuzzleMap(puzzleMap)
@@ -71,11 +72,12 @@ def SolverB(puzzleMap):
             posX += x
             posY += y
         totalTreeHits.append(treeHits)
-    
+
     treeHitProduct = 1
     for treeHit in totalTreeHits:
         treeHitProduct *= treeHit
     return treeHitProduct
+
 
 def main():
     puzzleMap = []

@@ -1,5 +1,6 @@
 from aoc_timer import time_it
 
+
 class ExpenseObject():
     def __init__(self, expenseList, target):
         self._expenseList = sorted(expenseList)
@@ -54,28 +55,21 @@ def SolverA(expenseList):
     inputLocB = 0
     while inputLocA < expLength:
         inputA = reversedExpList[inputLocA]
-        # msg = str(inputA)
         if inputA >= expTarget:
-            # msg += ' inputA is bigger. Skip to the next inputA.'
-            # print(msg)
             continue
 
         while inputLocB < expLength:
             inputB = expList[inputLocB]
-            # msg = str(inputA) + ' ' + str(inputB)
             if (inputA + inputB) > expTarget:
-                # msg += ' inputA + inputB bigger. Skip to the next inputA.'
-                # print(msg)
                 break
             elif (inputA + inputB) == expTarget:
-                # msg += ' BINGO!'
-                # print(msg)
                 return (inputA * inputB)
             inputLocB += 1
 
         inputLocA += 1
         inputLocB = 0
     return None
+
 
 @time_it
 def SolverB(expenseList):
@@ -92,28 +86,20 @@ def SolverB(expenseList):
         inputA = reversedExpList[inputLocA]
         msg = str(inputA)
         if inputA >= expTarget:
-            # msg += ' inputA is bigger. Skip to the next inputA.'
-            # print(msg)
             continue
 
         while inputLocB < expLength:
             inputB = expList[inputLocB]
             msg = msg + ' ' + str(inputB)
             if (inputA + inputB) > expTarget:
-                # msg += ' inputA + inputB bigger. Skip to the next inputA.'
-                # print(msg)
                 break
 
             while inputLocC < expLength:
                 inputC = expList[inputLocC]
                 msg = msg + ' ' + str(inputC)
                 if (inputA + inputB + inputC) > expTarget:
-                    # msg += ' inputA + inputB + inputC is bigger. Skip to the next inputB.'
-                    # print(msg)
                     break
                 elif (inputA + inputB + inputC) == expTarget:
-                    # msg += ' BINGO!'
-                    # print(msg)
                     return (inputA * inputB * inputC)
 
                 inputLocC += 1

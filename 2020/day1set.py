@@ -1,5 +1,6 @@
 from aoc_timer import time_it
 
+
 class ExpenseObject():
     def __init__(self, expenseList, target):
         self._expenseList = expenseList
@@ -58,6 +59,7 @@ def SolverA(expenseList):
         inputLocA += 1
         inputLocB = 0
     return None
+
 
 @time_it
 def SolverB(expenseList):

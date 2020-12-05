@@ -32,32 +32,25 @@ class Passport():
 
     def validateByr(self):
         byr = self._passportDict.get('byr')
-        if len(byr) != 4:
-            return False
         if int(byr) >= 1920 and int(byr) <= 2002:
             return True
         return False
 
     def validateIyr(self):
         iyr = self._passportDict.get('iyr')
-        if len(iyr) != 4:
-            return False
         if int(iyr) >= 2010 and int(iyr) <= 2020:
             return True
         return False
 
     def validateEyr(self):
         eyr = self._passportDict.get('eyr')
-        if len(eyr) != 4:
-            return False
         if int(eyr) >= 2020 and int(eyr) <= 2030:
             return True
         return False
 
     def validateHgt(self):
         hgt = self._passportDict.get('hgt')
-        pattern = re.compile(r"(?P<num>[0-9]*)(?P<dem>\D*)")
-        match = pattern.match(hgt)
+        match = re.fullmatch(r"(?P<num>[0-9]*)(?P<dem>\D*)", hgt)
         num = int(match.group('num')) or 0
         dem = match.group('dem') or None
         if dem == 'cm' and (150 <= num <= 193):
@@ -69,8 +62,7 @@ class Passport():
 
     def validateHcl(self):
         hcl = self._passportDict.get('hcl')
-        pattern = re.compile(r"#[0-9a-f]{6}")
-        match = pattern.match(hcl)
+        match = re.fullmatch(r"#[0-9a-f]{6}", hcl)
         if match:
             return True
         return False
@@ -83,8 +75,7 @@ class Passport():
 
     def validatePid(self):
         pid = self._passportDict.get('pid')
-        pattern = re.compile(r"^([0-9]{9})$")
-        match = pattern.match(pid)
+        match = re.fullmatch(r"[0-9]{9}", pid)
         if match:
             return True
         return False
@@ -94,11 +85,7 @@ class Passport():
 def SolverA(passportList):
     goodPassports = 0
     for passport in passportList:
-        passportDict = {}
-        for items in passport.split(' '):
-            key, value = items.split(':')
-            passportDict[key] = value
-        passportObj = Passport(passportDict)
+        passportObj = Passport(passport)
         if passportObj.validate():
             goodPassports += 1
 
@@ -109,11 +96,7 @@ def SolverA(passportList):
 def SolverB(passportList):
     goodPassports = 0
     for passport in passportList:
-        passportDict = {}
-        for items in passport.split(' '):
-            key, value = items.split(':')
-            passportDict[key] = value
-        passportObj = Passport(passportDict, True)
+        passportObj = Passport(passport, True)
         if passportObj.validate():
             goodPassports += 1
 
@@ -121,22 +104,30 @@ def SolverB(passportList):
 
 
 def parse(textData):
-    passportList = ['']
+    passportLineList = ['']
     for line in textData.splitlines():
         line = line.rstrip()
         if line != '':
-            oldLine = passportList.pop(-1)
+            oldLine = passportLineList.pop(-1)
             if oldLine != '':
                 oldLine += ' '
             line = oldLine + line
-            passportList.append(line)
+            passportLineList.append(line)
         else:
-            passportList.append('')
+            passportLineList.append('')
+
+    passportList = []
+    for passport in passportLineList:
+        passportDict = {}
+        for items in passport.split(' '):
+            key, value = items.split(':')
+            passportDict[key] = value
+        passportList.append(passportDict)
     return passportList
 
 
 def main():
-    passportList = ['']
+    passportList = []
     lines = ''
     with open('day4-inputs.txt', 'r') as f:
         for line in f.readlines():
