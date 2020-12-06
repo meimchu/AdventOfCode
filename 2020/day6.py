@@ -15,12 +15,9 @@ class GroupAnswers():
 
     def groupAnswers(self):
         for key, value in self.groupDict.iteritems():
-            prevFullGroupAnswers = set()
-            fullGroupAnswers = set()
             prevFullGroupAnswers = self._fullGroupAnswers.copy()
-            for x in range(len(value)):
-                self._groupAnswers.add(value[x])
-                fullGroupAnswers.add(value[x])
+            self._groupAnswers.update(set(value))
+            fullGroupAnswers = set(value)
             if key == 0:
                 prevFullGroupAnswers = fullGroupAnswers.copy()
             self._fullGroupAnswers = set(
