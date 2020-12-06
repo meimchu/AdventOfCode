@@ -21,11 +21,9 @@ class SeatFinder():
 
     def search(self, rowOrCol):
         if rowOrCol == self.ROW:
-            pattern = self.rowPattern.replace('F', '0')
-            pattern = pattern.replace('B', '1')
+            pattern = self.rowPattern.replace('F', '0').replace('B', '1')
         else:
-            pattern = self.colPattern.replace('L', '0')
-            pattern = pattern.replace('R', '1')
+            pattern = self.colPattern.replace('L', '0').replace('R', '1')
 
         return int(pattern, 2)
 
