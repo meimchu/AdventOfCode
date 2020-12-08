@@ -2,10 +2,10 @@ from aoc_timer import time_it
 
 
 @time_it
-def SolverA(groupList):
+def SolverA(group_list):
     total = 0
     answer = set()
-    for group in groupList:
+    for group in group_list:
         for person in group:
             answer.update(set(person))
         total += len(answer)
@@ -15,48 +15,48 @@ def SolverA(groupList):
 
 
 @time_it
-def SolverB(groupList):
+def SolverB(group_list):
     total = 0
-    totalAnswer = set()
-    for group in groupList:
+    total_answer = set()
+    for group in group_list:
         for count, person in enumerate(group):
             answer = set(person)
             if count == 0:
-                totalAnswer = set(person)
+                total_answer = set(person)
             else:
-                totalAnswer = totalAnswer.intersection(answer)
-        total += len(totalAnswer)
+                total_answer = total_answer.intersection(answer)
+        total += len(total_answer)
         answer = set()
 
     return total
 
 
-def parse(textData):
-    groupList = []
-    peopleList = []
-    lineRows = textData.count('\n')
-    for lineCount, line in enumerate(textData.splitlines()):
+def parse(test_data):
+    group_list = []
+    people_list = []
+    line_rows = test_data.count('\n')
+    for lineCount, line in enumerate(test_data.splitlines()):
         if line != '':
-            peopleList.append(line)
-            if lineCount == lineRows:
-                groupList.append(peopleList)
+            people_list.append(line)
+            if lineCount == line_rows:
+                group_list.append(people_list)
         else:
-            groupList.append(peopleList)
-            peopleList = []
+            group_list.append(people_list)
+            people_list = []
 
-    return(groupList)
+    return(group_list)
 
 
 def main():
-    groupList = []
+    group_list = []
     lines = ''
     with open('day6-inputs.txt', 'r') as f:
         for line in f.readlines():
             lines += line
-        groupList = parse(lines)
+        group_list = parse(lines)
 
-    print(SolverA(groupList))
-    print(SolverB(groupList))
+    print(SolverA(group_list))
+    print(SolverB(group_list))
 
 
 if __name__ == '__main__':

@@ -84,18 +84,18 @@ def SolverA(bagList):
     bag_dict = {}
     for line in bagList:
         bags = re.findall(
-            r"(?P<num>[0-9]{1,})\s(?P<name>[a-zA-Z]*\s[a-zA-Z]*)", line)
-        bag_key = re.match(r"^\w*\s\w*", line)
-        bag_dict[bag_key.group()] = bags
+            r"([0-9]{1,})\s([a-zA-Z]*\s[a-zA-Z]*)", line)
+        bag_key = ' '.join(line.split(' ')[:2])
+        bag_dict[bag_key] = bags
     bag_obj = BagExamine(bag_dict)
 
     return bag_obj.search_occurence('shiny gold')
 
 
 @time_it
-def SolverB(bagList):
+def SolverB(bag_list):
     bag_dict = {}
-    for line in bagList:
+    for line in bag_list:
         bags = re.findall(
             r"(?P<num>[0-9]{1,})\s(?P<name>[a-zA-Z]*\s[a-zA-Z]*)", line)
         bag_key = re.match(r"^\w*\s\w*", line)
@@ -105,15 +105,22 @@ def SolverB(bagList):
     return bag_obj.search_contain('shiny gold')
 
 
+def parse(textData):
+    bag_list = []
+    for line in textData.splitlines():
+        bag_list.append(line)
+    return bag_list
+
 def main():
-    bagList = []
+    bag_list = []
+    lines = ''
     with open('day7-inputs.txt', 'r') as f:
         for line in f.readlines():
-            line = line.rstrip()
-            bagList.append(line)
+            lines += line
+        bag_list = parse(lines)
 
-    print(SolverA(bagList))
-    print(SolverB(bagList))
+    print(SolverA(bag_list))
+    print(SolverB(bag_list))
 
 
 if __name__ == '__main__':

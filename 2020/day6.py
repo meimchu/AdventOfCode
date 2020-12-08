@@ -2,87 +2,87 @@ from aoc_timer import time_it
 
 
 class GroupAnswers():
-    def __init__(self, groupList):
-        self._groupList = groupList
+    def __init__(self, group_list):
+        self._group_list = group_list
         self._total = 0
-        self._totalB = 0
-        self._groupAnswer = set()
-        self._groupAnswerB = set()
+        self._total_b = 0
+        self._group_answer = set()
+        self._group_answer_b = set()
 
-        self.groupAnswers()
+        self.group_answers()
 
     @property
-    def groupList(self):
-        return self._groupList
+    def group_list(self):
+        return self._group_list
 
-    def groupAnswers(self):
-        for count, person in enumerate(self.groupList):
+    def group_answers(self):
+        for count, person in enumerate(self.group_list):
             answer = set(person)
-            self._groupAnswer.update(answer)
+            self._group_answer.update(answer)
             if count == 0:
-                self._groupAnswerB = answer
-            self._groupAnswerB = self._groupAnswerB.intersection(answer)
-        self._total += len(self._groupAnswer)
-        self._totalB += len(self._groupAnswerB)
+                self._group_answer_b = answer
+            self._group_answer_b = self._group_answer_b.intersection(answer)
+        self._total += len(self._group_answer)
+        self._total_b += len(self._group_answer_b)
 
-        return self._groupAnswer
+        return self._group_answer
 
-    def groupAnswersCount(self):
+    def group_answers_count(self):
         return self._total
 
-    def fullGroupAnswers(self):
-        return self._groupAnswerB
+    def full_group_answers(self):
+        return self._group_answer_b
 
-    def fullGroupAnswersCount(self):
-        return self._totalB
-
-
-@time_it
-def SolverA(groupDictList):
-    totalAnswers = 0
-    for groupDict in groupDictList:
-        groupObj = GroupAnswers(groupDict)
-        totalAnswers += groupObj.groupAnswersCount()
-
-    return totalAnswers
+    def frull_group_answers_count(self):
+        return self._total_b
 
 
 @time_it
-def SolverB(groupDictList):
-    totalAnswers = 0
-    for groupDict in groupDictList:
-        groupObj = GroupAnswers(groupDict)
-        totalAnswers += groupObj.fullGroupAnswersCount()
+def SolverA(group_dict_list):
+    total_answers = 0
+    for group_dict in group_dict_list:
+        groupObj = GroupAnswers(group_dict)
+        total_answers += groupObj.group_answers_count()
 
-    return totalAnswers
+    return total_answers
+
+
+@time_it
+def SolverB(group_dict_list):
+    total_answers = 0
+    for group_dict in group_dict_list:
+        groupObj = GroupAnswers(group_dict)
+        total_answers += groupObj.frull_group_answers_count()
+
+    return total_answers
 
 
 def parse(textData):
-    groupList = []
-    peopleList = []
+    group_list = []
+    people_list = []
     lineRows = textData.count('\n')
     for lineCount, line in enumerate(textData.splitlines()):
         if line != '':
-            peopleList.append(line)
+            people_list.append(line)
             if lineCount == lineRows:
-                groupList.append(peopleList)
+                group_list.append(people_list)
         else:
-            groupList.append(peopleList)
-            peopleList = []
+            group_list.append(people_list)
+            people_list = []
 
-    return(groupList)
+    return(group_list)
 
 
 def main():
-    groupList = []
+    group_list = []
     lines = ''
     with open('day6-inputs.txt', 'r') as f:
         for line in f.readlines():
             lines += line
-        groupList = parse(lines)
+        group_list = parse(lines)
 
-    print(SolverA(groupList))
-    print(SolverB(groupList))
+    print(SolverA(group_list))
+    print(SolverB(group_list))
 
 
 if __name__ == '__main__':
