@@ -1,7 +1,7 @@
 import unittest
-from day8 import SolverA
-from day8 import SolverB
-from day8 import parse
+from day8class import SolverA
+from day8class import SolverB
+from day8class import parse
 
 
 testString = """nop +0

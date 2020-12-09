@@ -1,11 +1,12 @@
 from aoc_timer import time_it
+import copy
 
 acc = 0
 loop = {}
 part_b = False
 
 
-def execute_command(commandList, command, current):
+def execute_command(command_list, command, current):
     global acc
     global loop
 
@@ -30,11 +31,11 @@ def execute_command(commandList, command, current):
         acc += value
     elif cmd == 'nop':
         current += 1
-    if current == len(commandList):
+    if current == len(command_list):
         # print('Hit end of list')
         return acc
-    cmd, value = commandList[current].split(' ')
-    execute_command(commandList, (cmd, int(value)), current)
+    cmd, value = command_list[current].split(' ')
+    execute_command(command_list, (cmd, int(value)), current)
 
 
 @time_it
@@ -55,7 +56,7 @@ def SolverB(command_list):
     global loop
     acc = 0
     part_b = True
-    original_command_list = command_list.copy()
+    original_command_list = copy.copy(command_list)
     change_cmd_dict = {}
     inverse_dict = {'jmp': 'nop', 'nop': 'jmp'}
 
@@ -76,7 +77,7 @@ def SolverB(command_list):
                 return acc
 
             # Restore command list back to original.
-            command_list = original_command_list.copy()
+            command_list = copy.copy(original_command_list)
             acc = 0
             loop = {}
 
