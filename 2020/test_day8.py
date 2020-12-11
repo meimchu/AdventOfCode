@@ -1,6 +1,6 @@
 import unittest
-from day8class import SolverA
-from day8class import SolverB
+from day8class import solver_a
+from day8class import solver_b
 from day8class import parse
 
 
@@ -16,11 +16,11 @@ acc +6"""
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_SolverA(self):
-        self.assertEqual(SolverA(parse(testString)), 5)
+    def test_solver_a(self):
+        self.assertEqual(solver_a(parse(testString)), 5)
 
-    def test_SolverB(self):
-        self.assertEqual(SolverB(parse(testString)), 8)
+    def test_solver_b(self):
+        self.assertEqual(solver_b(parse(testString)), 8)
 
 
 if __name__ == '__main__':

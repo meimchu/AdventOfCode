@@ -38,7 +38,7 @@ class SeatFinder():
 
 
 @time_it
-def SolverA(seatList):
+def solver_a(seatList):
     largestSeatId = 0
     for seat in seatList:
         seatObj = SeatFinder(seat)
@@ -49,7 +49,7 @@ def SolverA(seatList):
 
 
 @time_it
-def SolverB(seatList):
+def solver_b(seatList):
     seats = set()
     for seat in seatList:
         seatObj = SeatFinder(seat)
@@ -75,8 +75,8 @@ def main():
             line = line.rstrip()
             seatList.append(line)
 
-    print(SolverA(seatList))
-    print(SolverB(seatList))
+    print(solver_a(seatList))
+    print(solver_b(seatList))
 
 
 if __name__ == '__main__':

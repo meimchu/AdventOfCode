@@ -44,7 +44,7 @@ class ExpenseObject():
 
 
 @time_it
-def SolverA(expenseList):
+def solver_a(expenseList):
     exp = ExpenseObject(expenseList, 2020)
     expLength = exp.expenseListLength
     expList = exp.expenseList
@@ -72,7 +72,7 @@ def SolverA(expenseList):
 
 
 @time_it
-def SolverB(expenseList):
+def solver_b(expenseList):
     exp = ExpenseObject(expenseList, 2020)
     expLength = exp.expenseListLength
     expList = exp.expenseList
@@ -120,8 +120,8 @@ def main():
             if line not in expenseList:
                 expenseList.append(int(line))
 
-    print(SolverA(expenseList))
-    print(SolverB(expenseList))
+    print(solver_a(expenseList))
+    print(solver_b(expenseList))
     print('Solved.')
 
 

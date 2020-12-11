@@ -82,7 +82,7 @@ class Passport():
 
 
 @time_it
-def SolverA(passportList):
+def solver_a(passportList):
     goodPassports = 0
     for passport in passportList:
         passportObj = Passport(passport)
@@ -93,7 +93,7 @@ def SolverA(passportList):
 
 
 @time_it
-def SolverB(passportList):
+def solver_b(passportList):
     goodPassports = 0
     for passport in passportList:
         passportObj = Passport(passport, True)
@@ -134,8 +134,8 @@ def main():
             lines += line
         passportList = parse(lines)
 
-    print(SolverA(passportList))
-    print(SolverB(passportList))
+    print(solver_a(passportList))
+    print(solver_b(passportList))
     print('Solved.')
 
 

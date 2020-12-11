@@ -42,7 +42,7 @@ class PuzzleMap():
 
 
 @time_it
-def SolverA(puzzleMap):
+def solver_a(puzzleMap):
     mapObj = PuzzleMap(puzzleMap)
     posX = 1
     posY = 1
@@ -57,7 +57,7 @@ def SolverA(puzzleMap):
 
 
 @time_it
-def SolverB(puzzleMap):
+def solver_b(puzzleMap):
     mapObj = PuzzleMap(puzzleMap)
     posList = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
     totalTreeHits = []
@@ -86,8 +86,8 @@ def main():
             line = line.rstrip()
             puzzleMap.append(line)
 
-    print(SolverA(puzzleMap))
-    print(SolverB(puzzleMap))
+    print(solver_a(puzzleMap))
+    print(solver_b(puzzleMap))
     print('Solved.')
 
 

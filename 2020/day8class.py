@@ -97,7 +97,7 @@ class GameConsole():
 
 
 @time_it
-def SolverA(command_list):
+def solver_a(command_list):
     game = GameConsole(command_list)
     while True:
         if game.continue_game():
@@ -109,7 +109,7 @@ def SolverA(command_list):
 
 
 @time_it
-def SolverB(command_list):
+def solver_b(command_list):
     original_command_list = copy.copy(command_list)
     change_cmd_dict = {}
     inverse_dict = {'jmp': 'nop', 'nop': 'jmp'}
@@ -153,8 +153,8 @@ def main():
             lines += line
         command_list = parse(lines)
 
-    print(SolverA(command_list))
-    print(SolverB(command_list))
+    print(solver_a(command_list))
+    print(solver_b(command_list))
 
 
 if __name__ == '__main__':

@@ -26,7 +26,7 @@ testString = """35
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_SolverA(self):
+    def test_solver_a(self):
         preambleObj = PreambleCode(parse(testString), 5)
         while True:
             if preambleObj.continue_transmit():
@@ -35,7 +35,7 @@ class TestExpenseObject(unittest.TestCase):
                 break
         self.assertEqual(preambleObj.no_match, 127)
 
-    def test_SolverB(self):
+    def test_solver_b(self):
         preambleObj = PreambleCode(parse(testString), 5)
         preambleObj.target = 127
         while True:

@@ -39,7 +39,7 @@ def execute_command(command_list, command, current):
 
 
 @time_it
-def SolverA(command_list):
+def solver_a(command_list):
     global acc
     global part_b
     acc = 0
@@ -50,7 +50,7 @@ def SolverA(command_list):
 
 
 @time_it
-def SolverB(command_list):
+def solver_b(command_list):
     global acc
     global part_b
     global loop
@@ -97,8 +97,8 @@ def main():
             lines += line
         command_list = parse(lines)
 
-    print(SolverA(command_list))
-    print(SolverB(command_list))
+    print(solver_a(command_list))
+    print(solver_b(command_list))
 
 
 if __name__ == '__main__':

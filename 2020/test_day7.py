@@ -1,6 +1,6 @@
 import unittest
-from day7 import SolverA
-from day7 import SolverB
+from day7 import solver_a
+from day7 import solver_b
 from day7 import parse
 
 
@@ -16,11 +16,11 @@ dotted black bags contain no other bags."""
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_SolverA(self):
-        self.assertEqual(SolverA(parse(testString)), 4)
+    def test_solver_a(self):
+        self.assertEqual(solver_a(parse(testString)), 4)
 
-    def test_SolverB(self):
-        self.assertEqual(SolverB(parse(testString)), 32)
+    def test_solver_b(self):
+        self.assertEqual(solver_b(parse(testString)), 32)
 
 
 if __name__ == '__main__':

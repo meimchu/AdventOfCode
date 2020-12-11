@@ -26,7 +26,7 @@ class RocketObject():
         return self.totalFuel
 
 
-def SolverA(rockets):
+def solver_a(rockets):
     fuelSum = 0
     for rocket in rockets:
         rocketObj = RocketObject(rocket)
@@ -34,7 +34,7 @@ def SolverA(rockets):
     return fuelSum
 
 
-def SolverB(rockets):
+def solver_b(rockets):
     fuelSum = 0
     for rocket in rockets:
         rocketObj = RocketObject(rocket)
@@ -49,8 +49,8 @@ def main():
         for line in f.readlines():
             rockets.append(int(line.replace('\n', '')))
         f.close()
-    print SolverA(rockets)
-    print SolverB(rockets)
+    print solver_a(rockets)
+    print solver_b(rockets)
     print('Solved.')
 
 

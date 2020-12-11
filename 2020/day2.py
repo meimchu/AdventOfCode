@@ -45,7 +45,7 @@ class PasswordPolicy():
 
 
 @time_it
-def SolverA(passwordList):
+def solver_a(passwordList):
     goodPasswords = 0
     for input in passwordList:
         countRange, letter, password = input.split(' ')
@@ -56,7 +56,7 @@ def SolverA(passwordList):
 
 
 @time_it
-def SolverB(passwordList):
+def solver_b(passwordList):
     goodPasswords = 0
     for input in passwordList:
         countRange, letter, password = input.split(' ')
@@ -74,8 +74,8 @@ def main():
             if line not in passwordList:
                 passwordList.append(line)
 
-    print(SolverA(passwordList))
-    print(SolverB(passwordList))
+    print(solver_a(passwordList))
+    print(solver_b(passwordList))
     print('Solved.')
 
 

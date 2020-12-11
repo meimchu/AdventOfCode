@@ -80,7 +80,7 @@ class BagExamine():
 
 
 @time_it
-def SolverA(bagList):
+def solver_a(bagList):
     bag_dict = {}
     for line in bagList:
         bags = re.findall(
@@ -93,7 +93,7 @@ def SolverA(bagList):
 
 
 @time_it
-def SolverB(bag_list):
+def solver_b(bag_list):
     bag_dict = {}
     for line in bag_list:
         bags = re.findall(
@@ -119,8 +119,8 @@ def main():
             lines += line
         bag_list = parse(lines)
 
-    print(SolverA(bag_list))
-    print(SolverB(bag_list))
+    print(solver_a(bag_list))
+    print(solver_b(bag_list))
 
 
 if __name__ == '__main__':

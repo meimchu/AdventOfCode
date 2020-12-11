@@ -103,7 +103,7 @@ class PreambleCode():
 
 
 @time_it
-def SolverA(preamble_list):
+def solver_a(preamble_list):
     global solution_a
 
     preambleObj = PreambleCode(preamble_list)
@@ -117,7 +117,7 @@ def SolverA(preamble_list):
 
 
 @time_it
-def SolverB(preamble_list):
+def solver_b(preamble_list):
     global solution_a
 
     preambleObj = PreambleCode(preamble_list)
@@ -147,8 +147,8 @@ def main():
             lines += line
         preamble_list = parse(lines)
 
-    print(SolverA(preamble_list))
-    print(SolverB(preamble_list))
+    print(solver_a(preamble_list))
+    print(solver_b(preamble_list))
 
 
 if __name__ == '__main__':

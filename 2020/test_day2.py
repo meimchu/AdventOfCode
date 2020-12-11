@@ -1,6 +1,6 @@
 import unittest
-from day2regex import SolverA
-from day2regex import SolverB
+from day2regex import solver_a
+from day2regex import solver_b
 
 
 testArray = ['1-3 a: abcde',
@@ -9,12 +9,12 @@ testArray = ['1-3 a: abcde',
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_SolverA(self):
-        self.assertEqual(SolverA(testArray), 2)
+    def test_solver_a(self):
+        self.assertEqual(solver_a(testArray), 2)
 
-    def test_SolverB(self):
+    def test_solver_b(self):
 
-        self.assertEqual(SolverB(testArray), 1)
+        self.assertEqual(solver_b(testArray), 1)
 
 
 if __name__ == '__main__':

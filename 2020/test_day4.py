@@ -1,6 +1,6 @@
 import unittest
-from day4 import SolverA
-from day4 import SolverB
+from day4 import solver_a
+from day4 import solver_b
 from day4 import parse
 from day4 import Passport
 
@@ -48,11 +48,11 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719"""
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_SolverA(self):
-        self.assertEqual(SolverA(parse(partA)), 2)
+    def test_solver_a(self):
+        self.assertEqual(solver_a(parse(partA)), 2)
 
-    def test_SolverB(self):
-        self.assertEqual(SolverB(parse(partB)), 4)
+    def test_solver_b(self):
+        self.assertEqual(solver_b(parse(partB)), 4)
 
     def test_ValidateByr(self):
         testDict = {'byr': '2002'}

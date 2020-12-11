@@ -1,14 +1,14 @@
 import unittest
-from day5binary import SolverA
+from day5binary import solver_a
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_SolverA(self):
+    def test_solver_a(self):
         testArray = ['FBFBBFFRLR',
                      'BFFFBBFRRR',
                      'FFFBBBFRRR',
                      'BBFFBBFRLL']
-        self.assertEqual(SolverA(testArray), 820)
+        self.assertEqual(solver_a(testArray), 820)
 
 
 if __name__ == '__main__':

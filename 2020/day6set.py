@@ -2,7 +2,7 @@ from aoc_timer import time_it
 
 
 @time_it
-def SolverA(group_list):
+def solver_a(group_list):
     total = 0
     answer = set()
     for group in group_list:
@@ -15,7 +15,7 @@ def SolverA(group_list):
 
 
 @time_it
-def SolverB(group_list):
+def solver_b(group_list):
     total = 0
     total_answer = set()
     for group in group_list:
@@ -55,8 +55,8 @@ def main():
             lines += line
         group_list = parse(lines)
 
-    print(SolverA(group_list))
-    print(SolverB(group_list))
+    print(solver_a(group_list))
+    print(solver_b(group_list))
 
 
 if __name__ == '__main__':

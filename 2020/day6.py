@@ -38,7 +38,7 @@ class GroupAnswers():
 
 
 @time_it
-def SolverA(group_dict_list):
+def solver_a(group_dict_list):
     total_answers = 0
     for group_dict in group_dict_list:
         groupObj = GroupAnswers(group_dict)
@@ -48,7 +48,7 @@ def SolverA(group_dict_list):
 
 
 @time_it
-def SolverB(group_dict_list):
+def solver_b(group_dict_list):
     total_answers = 0
     for group_dict in group_dict_list:
         groupObj = GroupAnswers(group_dict)
@@ -81,8 +81,8 @@ def main():
             lines += line
         group_list = parse(lines)
 
-    print(SolverA(group_list))
-    print(SolverB(group_list))
+    print(solver_a(group_list))
+    print(solver_b(group_list))
 
 
 if __name__ == '__main__':
