@@ -7,6 +7,8 @@ class SeatMap():
     OCCUPIED_SEAT = '#'
     EMPTY_SEAT = 'L'
     FLOOR = '.'
+    STATUS = [OCCUPIED_SEAT, EMPTY_SEAT, FLOOR]
+    FLIP_RELATIONSHIP = {OCCUPIED_SEAT: EMPTY_SEAT, EMPTY_SEAT: OCCUPIED_SEAT}
 
     def __init__(self, seat_map, part_b=False):
         self._seat_map = seat_map
@@ -29,6 +31,15 @@ class SeatMap():
     @property
     def row(self):
         return self._row
+
+    def get_seat_counts(self, status):
+        seat_counts = 0
+        if status in self.STATUS:
+            for col in range(self.column):
+                for row in range(self.row):
+                    if self.get_seat(row, col) == status:
+                        seat_counts += 1
+        return seat_counts
 
     def get_seat(self, row, col):
         try:
@@ -111,10 +122,8 @@ class SeatMap():
         for seat in seat_list:
             row, col = seat
             rows = self.seat_map[col]
-            if self.get_seat(row, col) == self.OCCUPIED_SEAT:
-                rows = rows[0:row] + self.EMPTY_SEAT + rows[row + 1:]
-            elif self.get_seat(row, col) == self.EMPTY_SEAT:
-                rows = rows[0:row] + self.OCCUPIED_SEAT + rows[row + 1:]
+            flipped_seat = self.FLIP_RELATIONSHIP[self.get_seat(row, col)]
+            rows = rows[0:row] + flipped_seat + rows[row + 1:]
             self.seat_map[col] = rows
 
 
@@ -127,13 +136,7 @@ def solver_a(seat_map):
         else:
             break
 
-    occupied = 0
-    for col in range(seat_map_obj.column):
-        for row in range(seat_map_obj.row):
-            if seat_map_obj.get_seat(row, col) == seat_map_obj.OCCUPIED_SEAT:
-                occupied += 1
-
-    return occupied
+    return seat_map_obj.get_seat_counts(seat_map_obj.OCCUPIED_SEAT)
 
 
 @time_it
@@ -145,13 +148,7 @@ def solver_b(seat_map):
         else:
             break
 
-    occupied = 0
-    for col in range(seat_map_obj.column):
-        for row in range(seat_map_obj.row):
-            if seat_map_obj.get_seat(row, col) == seat_map_obj.OCCUPIED_SEAT:
-                occupied += 1
-
-    return occupied
+    return seat_map_obj.get_seat_counts(seat_map_obj.OCCUPIED_SEAT)
 
 
 def parse(textData):
