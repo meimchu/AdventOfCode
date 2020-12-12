@@ -128,7 +128,7 @@ class MapSystem():
                 self.apply_move(self.direction, value)
 
             if changed_direction:
-                cycles = self.direction_degree / 90
+                cycles = self.direction_degree // 90
                 mod = cycles % 4
                 if mod == 0:
                     self.direction = self.EAST
@@ -192,7 +192,7 @@ def main():
         direction_list = parse(lines)
 
     direction_list2 = copy.copy(direction_list)
-    # print(solver_a(direction_list))
+    print(solver_a(direction_list))
     print(solver_b(direction_list2))
 
 
