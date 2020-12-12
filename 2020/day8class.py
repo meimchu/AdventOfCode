@@ -59,7 +59,7 @@ class GameConsole():
                     self.accumulator -= v2
                 self.ended_by_loop = True
                 return False
-        if self.current == self._length:
+        if self.current == self.length:
             self.ended_by_end = True
             return False
         return True

@@ -17,10 +17,10 @@ L.LLLLL.LL"""
 
 
 class TestExpenseObject(unittest.TestCase):
-    def test_solver_a_1(self):
+    def test_solver_a(self):
         self.assertEqual(solver_a(parse(test_string)), 37)
 
-    def test_solver_b_1(self):
+    def test_solver_b(self):
         self.assertEqual(solver_b(parse(test_string)), 26)
 
 
