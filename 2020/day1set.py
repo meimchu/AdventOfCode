@@ -2,105 +2,105 @@ from aoc_timer import time_it
 
 
 class ExpenseObject():
-    def __init__(self, expenseList, target):
-        self._expenseList = expenseList
+    def __init__(self, expense_list, target):
+        self._expense_list = expense_list
         self._target = target
 
-        self._inputLocA = 0
-        self._inputLocB = 0
+        self._input_loc_a = 0
+        self._input_loc_b = 0
 
     @property
     def target(self):
         return self._target
 
     @property
-    def expenseList(self):
-        return self._expenseList
+    def expense_list(self):
+        return self._expense_list
 
     @property
-    def expenseListLength(self):
-        return len(self._expenseList)
+    def expense_list_length(self):
+        return len(self._expense_list)
 
     @property
-    def inputLocA(self):
-        return self._inputLocA
+    def input_loc_a(self):
+        return self._input_loc_a
 
-    @inputLocA.setter
-    def inputLocA(self, a):
-        self._inputLocA = a
+    @input_loc_a.setter
+    def input_loc_a(self, a):
+        self._input_loc_a = a
 
     @property
-    def inputLocB(self):
-        return self._inputLocB
+    def input_loc_b(self):
+        return self._input_loc_b
 
-    @inputLocB.setter
-    def inputLocB(self, b):
-        self._inputLocB = b
+    @input_loc_b.setter
+    def input_loc_b(self, b):
+        self._input_loc_b = b
 
 
 @time_it
-def solver_a(expenseList):
-    exp = ExpenseObject(expenseList, 2020)
-    expLength = exp.expenseListLength
-    expList = exp.expenseList
-    expTarget = exp.target
+def solver_a(expense_list):
+    exp = ExpenseObject(expense_list, 2020)
+    exp_length = exp.expense_list_length
+    exp_list = exp.expense_list
+    exp_target = exp.target
 
-    inputLocA = 0
-    inputLocB = 0
-    while inputLocA < expLength:
-        inputA = expList[inputLocA]
+    input_loc_a = 0
+    input_loc_b = 0
+    while input_loc_a < exp_length:
+        input_a = exp_list[input_loc_a]
 
-        while inputLocB < expLength:
-            inputB = expList[inputLocB]
-            if (inputA + inputB) == expTarget:
-                return (inputA * inputB)
-            inputLocB += 1
+        while input_loc_b < exp_length:
+            input_b = exp_list[input_loc_b]
+            if (input_a + input_b) == exp_target:
+                return (input_a * input_b)
+            input_loc_b += 1
 
-        inputLocA += 1
-        inputLocB = 0
+        input_loc_a += 1
+        input_loc_b = 0
     return None
 
 
 @time_it
-def solver_b(expenseList):
-    exp = ExpenseObject(expenseList, 2020)
-    expLength = exp.expenseListLength
-    expList = exp.expenseList
-    expTarget = exp.target
+def solver_b(expense_list):
+    exp = ExpenseObject(expense_list, 2020)
+    exp_length = exp.expense_list_length
+    exp_list = exp.expense_list
+    exp_target = exp.target
 
-    inputLocA = 0
-    inputLocB = 0
-    inputLocC = 0
-    while inputLocA < expLength:
-        inputA = expList[inputLocA]
+    input_loc_a = 0
+    input_loc_b = 0
+    input_loc_c = 0
+    while input_loc_a < exp_length:
+        input_a = exp_list[input_loc_a]
 
-        while inputLocB < expLength:
-            inputB = expList[inputLocB]
+        while input_loc_b < exp_length:
+            input_b = exp_list[input_loc_b]
 
-            while inputLocC < expLength:
-                inputC = expList[inputLocC]
-                if (inputA + inputB + inputC) == expTarget:
-                    return (inputA * inputB * inputC)
+            while input_loc_c < exp_length:
+                input_c = exp_list[input_loc_c]
+                if (input_a + input_b + input_c) == exp_target:
+                    return (input_a * input_b * input_c)
 
-                inputLocC += 1
+                input_loc_c += 1
 
-            inputLocB += 1
-            inputLocC = 0
+            input_loc_b += 1
+            input_loc_c = 0
 
-        inputLocA += 1
-        inputLocB = 0
+        input_loc_a += 1
+        input_loc_b = 0
     return None
 
 
 def main():
-    expenseList = []
+    expense_list = []
     with open('day1-inputs.txt', 'r') as f:
         for line in f.readlines():
             line = line.rstrip()
-            expenseList.append(int(line))
+            expense_list.append(int(line))
 
-    print(solver_a(expenseList))
-    print(solver_b(expenseList))
+    print(solver_a(expense_list))
+    print(solver_b(expense_list))
     print('Solved.')
 
 
